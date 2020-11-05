@@ -8,6 +8,11 @@
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    zoom: 0.5;
+
+    @media (max-width: $xs-max) {
+      right: -80%;
+    }
   }
 
   .homePageContent {
