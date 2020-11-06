@@ -66,51 +66,53 @@ const LogIn = () => {
   };
 
   return (
-    <div className="forms">
-      <h1>Sign in</h1>
-      <Form
-        {...layout}
-        name="basic"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-      >
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[
-            {
-              required: true,
-              message: 'Please provide an email.',
-            },
-          ]}
+    <div className="frame">
+      <div className="forms">
+        <h1>Sign in</h1>
+        <Form
+          {...layout}
+          name="basic"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: 'Please provide an email.',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please provide a password!',
-            },
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Please provide a password!',
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Sign in
-          </Button>{' '}
-        </Form.Item>
-      </Form>
-      <p className="authDirection">
-        New comer? Sign up <Link to="/sign_up">here</Link>
-      </p>
+          <Form.Item {...tailLayout}>
+            <Button type="primary" htmlType="submit">
+              Sign in
+            </Button>{' '}
+          </Form.Item>
+        </Form>
+        <p className="authDirection">
+          New comer? Sign up <Link to="/sign_up">here</Link>
+        </p>
+      </div>
     </div>
   );
 };
