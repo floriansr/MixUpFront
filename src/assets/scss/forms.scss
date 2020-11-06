@@ -1,45 +1,42 @@
 @import '../../assets/scss/variables';
 
-.forms{
-  label{
-    color: rgb(247, 249, 249) !important;
-    @media (max-width: $xs-max) {
-      font-size: 1.2rem;
-    }
-  }
-
-  h1 {
-    color: rgb(247, 249, 249) !important;
-    font-family: 'PoppinsBoldItalic';
-    text-align: center;
-    padding: 2% 0;
-    margin: 0;
-    font-size: 5rem;
-    
-    @media (max-width: $xs-max) {
-      font-size: 3rem;
-    }
-  }
-
-  p.authDirection{
-    text-align: center;
-    color: rgb(247, 249, 249) !important;
-    @media (max-width: $xs-max) {
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (min-width: $lg-min) {
-    margin-top: 7rem;
-  }
-
-  @media (min-width: $md-min) and (max-width: $md-max) {
-    margin-top: 25%;
-    margin-left: -3rem;
-  }
+.frame{
+  height: calc(100vh - 55px);
+  display: flex;
   
-  @media (max-width: $xs-max) {
-    margin-top: 4rem;
-    padding: 0 2rem;
+
+  .forms{
+
+    width: 100%;
+    margin: auto 0;
+
+    label{
+      color: rgb(247, 249, 249) !important;
+      @media (max-width: $xs-max) {
+        font-size: 1.2rem;
+      }
+    }
+
+    h1 {
+      color: rgb(247, 249, 249) !important;
+      font-family: 'PoppinsBoldItalic';
+      text-align: center;
+      padding: 2% 0;
+      margin: 0;
+      font-size: 5rem;
+      padding-top: 0;
+      
+      @media (max-width: $xs-max) {
+        font-size: 3rem;
+      }
+    }
+
+    p.authDirection{
+      text-align: center;
+      color: rgb(247, 249, 249) !important;
+      @media (max-width: $xs-max) {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
