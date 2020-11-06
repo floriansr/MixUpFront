@@ -33,7 +33,7 @@
     margin-top: 7rem;
   }
 
-  @media (max-width: $md-max) and (min-width: $md-min) {
+  @media (min-width: $md-min) and (max-width: $md-max) {
     margin-top: 25%;
     margin-left: -3rem;
   }
