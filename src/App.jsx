@@ -17,23 +17,17 @@ const App = () => {
   return (
     <>
       <Router>
-        <div>
-          <Navbar />
-          <Switch>
-            <Authroute exact path="/new-playlist" component={NewPlaylist} />
-            <Route exact path="/sign_up" component={Register} />
-            <Route exact path="/sign_in" component={LogIn} />
-            <Route exact path="/about" component={About} />
-            <Authroute
-              exact
-              path="/playlist/:playlistId"
-              component={Playlist}
-            />
-            <Authroute exact path="/profile" component={Profile} />
-            <Home exact path="/" component={Home} />
-            <Route path="*" component={NotFound} status={404} />
-          </Switch>
-        </div>
+        <Navbar />
+        <Switch>
+          <Authroute exact path="/new-playlist" component={NewPlaylist} />
+          <Route exact path="/sign_up" component={Register} />
+          <Route exact path="/sign_in" component={LogIn} />
+          <Route exact path="/about" component={About} />
+          <Authroute exact path="/playlist/:playlistId" component={Playlist} />
+          <Authroute exact path="/profile" component={Profile} />
+          <Home exact path="/" component={Home} />
+          <Route path="*" component={NotFound} status={404} />
+        </Switch>
       </Router>
     </>
   );
