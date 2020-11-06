@@ -67,51 +67,53 @@ const Register = () => {
 
   return (
     <>
-      <div className="forms">
-        <h1>Sign up</h1>
-        <Form
-          {...layout}
-          name="basic"
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-        >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: 'Please provide an email!',
-              },
-            ]}
+      <div className="frame">
+        <div className="forms">
+          <h1>Sign up</h1>
+          <Form
+            {...layout}
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
           >
-            <Input />
-          </Form.Item>
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please provide an email!',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: 'Please choose a password!',
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please choose a password!',
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-          <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Sign up
-            </Button>
-          </Form.Item>
-        </Form>
-        <p className="authDirection">
-          Already have an account? Sign in <Link to="/sign_in">here</Link>
-        </p>
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                Sign up
+              </Button>
+            </Form.Item>
+          </Form>
+          <p className="authDirection">
+            Already have an account? Sign in <Link to="/sign_in">here</Link>
+          </p>
+        </div>
       </div>
     </>
   );
