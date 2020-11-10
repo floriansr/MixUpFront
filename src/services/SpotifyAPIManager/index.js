@@ -1,17 +1,19 @@
 import axios from 'axios';
-import { spotifyTokenPremium } from '../../constants';
+// import { spotifyTokenPremium } from '../../constants';
+import Spotify from '../Auth';
 
 const API = axios.create({
   baseURL: 'https://api.spotify.com/v1/',
 });
 
 API.interceptors.request.use(
-  ({ headers, ...config }) => ({
+  async ({ headers, ...config }) => ({
     ...config,
     headers: {
       ...headers,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${spotifyTokenPremium}`,
+      Authorization: `Bearer ${await Spotify.authorize()}`,
+      // Authorization: `Bearer ${spotifyTokenPremium}`,
     },
   }),
   (error) => {
