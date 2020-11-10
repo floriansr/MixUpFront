@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import APIManager from '../../services/APIManager';
 
 import { spotifyTokenPremium } from '../../constants';
+// import Auth from '../../services/Auth';
+
 import { setTracks, setCurrentTrack } from '../../redux';
 
 import './styles.scss';
