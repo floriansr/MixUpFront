@@ -1,5 +1,11 @@
-import React from 'react';
+import * as React from 'react';
+// // import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// import Spotify from './services/Auth';
+
+// import { setToken } from './redux';
 
 import Navbar from './components/Navbar';
 import Authroute from './tools/Authroute';
@@ -14,6 +20,23 @@ import Playlist from './pages/Playlist';
 import NewPlaylist from './pages/NewPlaylist';
 
 const App = () => {
+  // const { accessToken } = useSelector((state) => state.token);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const token = async () => {
+  //     if (accessToken === false) {
+  //       try {
+  //         const res = await Spotify.authorize();
+  //         dispatch(setToken(res));
+  //       } catch {
+  //         console.error('An error occured with Credentials ID');
+  //       }
+  //     }
+  //   };
+  //   token();
+  // }, []);
+
   return (
     <>
       <Router>
