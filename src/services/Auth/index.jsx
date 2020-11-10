@@ -1,16 +1,18 @@
 import axios from 'axios';
 import querystring from 'querystring';
-import { clientID, clientSecret } from '../../constants';
+import dotenv from 'dotenv';
 
 /**
  * Authorize and get spotify access token
  */
 
+dotenv.config();
+
 export default class Spotify {
   static async authorize() {
-    const authKey = Buffer.from(`${clientID}:${clientSecret}`).toString(
-      'base64'
-    );
+    const authKey = Buffer.from(
+      `${process.env.REACT_APP_CLIENT_ID}:${process.env.REACT_APP_CLIENT_SECRET_ID}`
+    ).toString('base64');
 
     try {
       const axiosData = await axios.post(
@@ -29,11 +31,14 @@ export default class Spotify {
       // set token
       const { access_token } = axiosData.data;
       axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
+      return access_token;
+
+      // ValidateToken();
     } catch (e) {
       console.error('SPOTIFY ERROR:: Error during authorization:', e.message);
       console.error({
-        clientID,
-        clientSecret,
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET_ID,
         authKey,
       });
     }
