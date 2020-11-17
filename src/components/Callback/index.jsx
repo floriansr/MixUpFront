@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { message } from 'antd';
+import Cookies from 'js-cookie';
 import SpotifyACF from '../../services/Spotify_Authorization_Code_Flows';
 import { setTokens } from '../../redux';
 
@@ -18,6 +19,12 @@ const Callback = () => {
         dispatch(
           setTokens(result.access_token, result.refresh_token, result.scope)
         );
+        Cookies.set('spotifyTokens', {
+          accessToken: result.access_token,
+          refreshToken: result.refresh_token,
+          scopes: result.scope,
+          login: true,
+        });
         history.push('/');
         message.success('Thanks for authentification !', 3);
       } catch (error) {
