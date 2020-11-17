@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { PROFILE, REMOVE_PROFILE } from './userType';
-import { cookieName } from '../../constants';
+import cookieName from '../../constants';
 
 const initialState = {
   data: Cookies.get(cookieName)
