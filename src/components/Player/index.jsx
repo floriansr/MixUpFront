@@ -8,7 +8,9 @@ import { setTracks, setCurrentTrack } from '../../redux';
 import './styles.scss';
 
 const Player = ({ spotifyTrack, trackPlaylistId }) => {
-  const { accessToken } = useSelector((state) => state.token);
+  const { accessToken } = useSelector(
+    (state) => state.spotify_authentification
+  );
   const dispatch = useDispatch();
 
   const transition = async () => {
