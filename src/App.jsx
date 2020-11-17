@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Redux action
-// import { setUserData, removeUserData } from './redux';
+import { setUserData, removeUserData } from './redux';
 
 // Component
 import Navbar from './components/Navbar';
@@ -55,28 +55,28 @@ const App = () => {
    * requesting any private data (just authToken), it is safe to do so here
    */
 
-  // const retrieveOtherData = async () => {
-  //   try {
-  //     const res = await SpotifyManager.me(accessToken);
-  //     dispatch(setUserData({ displayName: res.display_name }));
-  //   } catch (error) {
-  //     console.log(error);
-  //     dispatch(
-  //       removeUserData({
-  //         loggedIn: false,
-  //         showError: true,
-  //         errors:
-  //           'Problem with authentication or login session has expired. Please try again.',
-  //       })
-  //     );
-  //   }
-  // };
+  const retrieveOtherData = async () => {
+    try {
+      const res = await SpotifyManager.me(accessToken);
+      dispatch(setUserData({ displayName: res.display_name }));
+    } catch (error) {
+      console.log(error);
+      dispatch(
+        removeUserData({
+          loggedIn: false,
+          showError: true,
+          errors:
+            'Problem with authentication or login session has expired. Please try again.',
+        })
+      );
+    }
+  };
 
   useEffect(() => {
     if (!Cookies.get('spotify_auth_state')) {
       TokenManager.getToken();
-      // } else if (login === true) {
-      //   retrieveOtherData(accessToken);
+    } else if (login === true) {
+      retrieveOtherData(accessToken);
     } else {
       console.log('App -> Not logged in');
     }
