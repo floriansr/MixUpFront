@@ -4,11 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { message } from 'antd';
 import SpotifyACF from '../../services/Spotify_Authorization_Code_Flows';
-import { setToken } from '../../redux';
+import { setTokens } from '../../redux';
 
 const Callback = () => {
   const history = useHistory();
-  const { login } = useSelector((state) => state.token);
+  const { login } = useSelector((state) => state.spotify_authentification);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Callback = () => {
       try {
         const result = await SpotifyACF.getSpotifyAccessToken(code);
         dispatch(
-          setToken(result.access_token, result.refresh_token, result.scope)
+          setTokens(result.access_token, result.refresh_token, result.scope)
         );
         history.push('/');
         message.success('Thanks for authentification !', 3);
