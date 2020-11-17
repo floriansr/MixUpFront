@@ -58,12 +58,13 @@ const App = () => {
   const retrieveOtherData = async () => {
     try {
       const res = await SpotifyManager.me(accessToken);
-      dispatch(setUserData({ displayName: res.display_name }));
+      dispatch(
+        setUserData({ displayName: res.display_name, email: res.email })
+      );
     } catch (error) {
       console.log(error);
       dispatch(
         removeUserData({
-          loggedIn: false,
           showError: true,
           errors:
             'Problem with authentication or login session has expired. Please try again.',
@@ -81,7 +82,7 @@ const App = () => {
       console.log('App -> Not logged in');
     }
     // if (new Date().getTime() - loginTime >= 3600 * 1000)
-  }, [login]);
+  }, [login, retrieveOtherData, accessToken]);
 
   return (
     <>
