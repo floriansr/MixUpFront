@@ -10,21 +10,22 @@ MixUp exists also as PWA.
 
 * * *
 
-NOTES AT FRIDAY 23:44
+NOTES AT TUEDAY 17TH NOVEMBER 10:14
 
-We need to manually update a token every 60 minutes for the music to actually play. Everything else is possible without this token.
+Application need to update a token every 60 minutes for streaming audios tracks metadatas. We'll do this part with a refresh token !
 
 * * *
 
 Currently available user experience
 
-1. see the home page
-2. sign in, sign up or get redirected to sign in if click on new playlist button
-3. once signed in, access the new playlist page, type a name and create a playlist, get redirected to the page
-4. add tracks to a playlist
-5. vote on tracks to see the ranking change (on realtime only for the user. Other users' action is not broadcasted)
-6. having 30 secs preview for the music (because we don't have a premium account)
-7. click on the share button to copy url of this page
+1. login to spotify (with premium account)
+2. be redirected to home page
+3. sign in, sign up or get redirected to sign in if click on new playlist button
+4. once signed in, access the new playlist page, type a name and create a playlist, get redirected to the page
+5. add tracks to a playlist
+6. vote on tracks to see the ranking change (on realtime only for the user. Other users' action is not broadcasted)
+7. streaming full track
+8. click on the share button to copy url of this page
 
 
 * * *
@@ -35,6 +36,7 @@ Stack and tools
 - Back: rails 6.0.3, ruby 2.7.1, gem acts_as_votable: gem devise-jwt
 - DevOps: Heroku, Vercel, Travis, Rspec
 - Project management: Github project board, github for Slack
+- Spotify authorization : Authorization Code Flows / Client Credentials Flows
 
 The front app interacts with both Spotify API (for any musical information on a track, and for the music player) and our back API (for composing playlists, counting votes and user auth).
 
