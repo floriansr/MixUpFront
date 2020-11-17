@@ -5,3 +5,7 @@ export {
   setTokens,
   removeTokens,
 } from './spotify_authentification/authActions';
+export {
+  setUserData,
+  removeUserData,
+} from './user_private_datas/privateDatasActions';
