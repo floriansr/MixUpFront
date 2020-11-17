@@ -1,16 +1,17 @@
 import axios from 'axios';
+import SpotifyCCF from '../Spotify_Client_Credentials_Flows';
 
 const API = axios.create({
   baseURL: 'https://api.spotify.com/v1/',
 });
 
 API.interceptors.request.use(
-  ({ headers, ...config }) => ({
+  async ({ headers, ...config }) => ({
     ...config,
     headers: {
       ...headers,
       'Content-Type': 'application/json',
-      Authorization: 'Bearer',
+      Authorization: `Bearer ${await SpotifyCCF.authorize()}`,
     },
   }),
   (error) => {
