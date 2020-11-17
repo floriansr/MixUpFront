@@ -3,7 +3,6 @@ import SpotifyPlayer from 'react-spotify-web-playback';
 import { useDispatch } from 'react-redux';
 import APIManager from '../../services/APIManager';
 
-import { spotifyTokenPremium } from '../../constants';
 import { setTracks, setCurrentTrack } from '../../redux';
 
 import './styles.scss';
@@ -28,7 +27,7 @@ const Player = ({ spotifyTrack, trackPlaylistId }) => {
       <SpotifyPlayer
         autoPlay
         offset={1}
-        token={spotifyTokenPremium}
+        token={spotifyTrack}
         uris={['spotify:track:55p8TQ1ggGYOO1gLQrC52D', `${spotifyTrack.uri}`]}
       />
     </>

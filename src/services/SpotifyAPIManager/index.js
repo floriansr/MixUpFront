@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { spotifyTokenPremium } from '../../constants';
 
 const API = axios.create({
   baseURL: 'https://api.spotify.com/v1/',
@@ -11,7 +10,7 @@ API.interceptors.request.use(
     headers: {
       ...headers,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${spotifyTokenPremium}`,
+      Authorization: 'Bearer',
     },
   }),
   (error) => {
