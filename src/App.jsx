@@ -40,7 +40,9 @@ import NewPlaylist from './pages/NewPlaylist';
 */
 
 const App = () => {
-  const { login, accessToken } = useSelector((state) => state.token);
+  const { login, accessToken } = useSelector(
+    (state) => state.spotify_authentification
+  );
   // , loginTime
   const dispatch = useDispatch();
 
