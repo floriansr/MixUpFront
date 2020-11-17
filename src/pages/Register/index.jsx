@@ -8,7 +8,7 @@ import { Form, Input, Button, message } from 'antd';
 import Cookies from 'js-cookie';
 
 import APIManager from '../../services/APIManager';
-import { cookieName } from '../../constants';
+import cookieName from '../../constants';
 import { setProfile, setConnection } from '../../redux';
 
 const layout = {

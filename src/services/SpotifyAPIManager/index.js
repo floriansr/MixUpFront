@@ -1,17 +1,17 @@
 import axios from 'axios';
-import { spotifyTokenPremium } from '../../constants';
+import SpotifyCCF from '../Spotify_Client_Credentials_Flows';
 
 const API = axios.create({
   baseURL: 'https://api.spotify.com/v1/',
 });
 
 API.interceptors.request.use(
-  ({ headers, ...config }) => ({
+  async ({ headers, ...config }) => ({
     ...config,
     headers: {
       ...headers,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${spotifyTokenPremium}`,
+      Authorization: `Bearer ${await SpotifyCCF.authorize()}`,
     },
   }),
   (error) => {
@@ -20,6 +20,14 @@ API.interceptors.request.use(
 );
 
 export default class SpotifyAPIManager {
+  static async me(aToken) {
+    const headers = {
+      headers: { Authorization: `Bearer ${aToken}` },
+    };
+    const res = await axios.get('https://api.spotify.com/v1/me', headers);
+    return res.data;
+  }
+
   static async getTrackById(tracks) {
     const ids = tracks.map((e) => e.track_spotify_id);
     const res = await API.get(`tracks/?ids=${ids.join(',')}`);

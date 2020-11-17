@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { cookieName } from '../../constants';
+import cookieName from '../../constants';
 
 const API = axios.create({
   baseURL: 'https://mixup-the-app.herokuapp.com',

@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import APIManager from '../../services/APIManager';
 
-import { spotifyTokenPremium } from '../../constants';
 import { setTracks, setCurrentTrack } from '../../redux';
 
 import './styles.scss';
 
 const Player = ({ spotifyTrack, trackPlaylistId }) => {
+  const { accessToken } = useSelector(
+    (state) => state.spotify_authentification
+  );
   const dispatch = useDispatch();
 
   const transition = async () => {
@@ -28,7 +30,7 @@ const Player = ({ spotifyTrack, trackPlaylistId }) => {
       <SpotifyPlayer
         autoPlay
         offset={1}
-        token={spotifyTokenPremium}
+        token={accessToken}
         uris={['spotify:track:55p8TQ1ggGYOO1gLQrC52D', `${spotifyTrack.uri}`]}
       />
     </>

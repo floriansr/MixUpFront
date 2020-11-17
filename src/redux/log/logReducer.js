@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { CONNECTION, DISCONNECTION } from './logType';
-import { cookieName } from '../../constants';
+import cookieName from '../../constants';
 
 const initialState = {
   user_connected: !!Cookies.get(cookieName),
