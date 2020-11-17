@@ -1,13 +1,16 @@
+import Cookies from 'js-cookie';
 import { SET_TOKENS, REMOVE_TOKENS } from './authTypes';
 
-const initialState = {
-  accessToken: '',
-  refreshToken: '',
-  expires_in: 0,
-  scopes: '',
-  login: false,
-  loginTime: '',
-};
+const initialState = Cookies.get('spotifyTokens')
+  ? JSON.parse(Cookies.get('spotifyTokens'))
+  : {
+      accessToken: '',
+      refreshToken: '',
+      expires_in: 0,
+      scopes: '',
+      login: false,
+      loginTime: '',
+    };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
