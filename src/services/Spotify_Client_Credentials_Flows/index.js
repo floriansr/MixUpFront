@@ -18,13 +18,13 @@ export default class SpotifyCCF {
       const res = await axios.post(
         'https://accounts.spotify.com/api/token',
         querystring.stringify({
-          grant_type: 'client_credentials',
+          grant_type: 'client_credentials'
         }),
         {
           headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            Authorization: `Basic ${authKey}`,
-          },
+            Authorization: `Basic ${authKey}`
+          }
         }
       );
 
@@ -37,7 +37,7 @@ export default class SpotifyCCF {
       console.error({
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET_ID,
-        authKey,
+        authKey
       });
     }
   }

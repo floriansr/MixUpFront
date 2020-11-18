@@ -36,11 +36,11 @@ const PlaylistTable = ({ spotifyDetails }) => {
       padding: '1%',
       paddingBottom: '2%',
       marginBottom: '3%',
-      boxShadow: '1px 1px 20px rgb(27, 31, 34)',
+      boxShadow: '1px 1px 20px rgb(27, 31, 34)'
     },
     container: {
-      maxHeight: 1000,
-    },
+      maxHeight: 1000
+    }
   });
 
   const classes = useStyles();
@@ -74,7 +74,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
     { id: 'title', label: 'TITLE', minWidth: 170 },
     { id: 'artist', label: 'ARTIST', minWidth: 170 },
     { id: 'added_by', label: 'ADDED BY', minWidth: 170 },
-    { id: 'score', label: 'SCORE', maxWidth: 60 },
+    { id: 'score', label: 'SCORE', maxWidth: 60 }
   ];
 
   const createData = (title, artist, score, added_by, id) => {
@@ -83,7 +83,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
       artist,
       score,
       added_by,
-      id,
+      id
     };
   };
 
@@ -94,15 +94,11 @@ const PlaylistTable = ({ spotifyDetails }) => {
     tracklist
       .sort((a, b) => b.score - a.score)
       .map((p) => {
-        const title = spotifyDetails.find((el) => p.track_spotify_id === el.id)
-          .name;
+        const title = spotifyDetails.find((el) => p.track_spotify_id === el.id).name;
 
-        const artist = spotifyDetails.find((el) => p.track_spotify_id === el.id)
-          .artists[0].name;
+        const artist = spotifyDetails.find((el) => p.track_spotify_id === el.id).artists[0].name;
         if (p.is_played === false) {
-          rows.push(
-            createData(title, artist, p.score, p.added_by.username, p.id)
-          );
+          rows.push(createData(title, artist, p.score, p.added_by.username, p.id));
         }
       });
 
@@ -117,8 +113,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
                 <TableCell
                   key={shortID.generate()}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
+                  style={{ minWidth: column.minWidth }}>
                   {column.label}
                 </TableCell>
               ))}
@@ -130,19 +125,12 @@ const PlaylistTable = ({ spotifyDetails }) => {
             {rows &&
               rows.map((row, index) => {
                 return (
-                  <TableRow
-                    role="checkbox"
-                    tabIndex={-1}
-                    key={shortID.generate()}
-                  >
+                  <TableRow role="checkbox" tabIndex={-1} key={shortID.generate()}>
                     <TableCell>{index === 0 && <NavigateNextIcon />}</TableCell>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell
-                          key={shortID.generate()}
-                          align={column.align}
-                        >
+                        <TableCell key={shortID.generate()} align={column.align}>
                           {column.id === 'score' ? (
                             <Chip
                               label={value}
@@ -151,7 +139,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
                                 borderRadius: '100%',
                                 padding: '1%',
                                 width: '3.5rem',
-                                height: '3.5rem',
+                                height: '3.5rem'
                               }}
                             />
                           ) : (
@@ -167,11 +155,10 @@ const PlaylistTable = ({ spotifyDetails }) => {
                             <Fab
                               style={{
                                 backgroundColor: 'rgb(77, 217, 117)',
-                                color: 'rgb(247, 249, 249)',
+                                color: 'rgb(247, 249, 249)'
                               }}
                               className={classes.fab}
-                              onClick={() => Likes(row)}
-                            >
+                              onClick={() => Likes(row)}>
                               <MusicNoteOutlinedIcon />
                             </Fab>
                           </Tooltip>
@@ -182,8 +169,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
                             <Fab
                               color="secondary"
                               className={classes.fab}
-                              onClick={() => Dislikes(row)}
-                            >
+                              onClick={() => Dislikes(row)}>
                               <MusicOffOutlinedIcon />
                             </Fab>
                           </Tooltip>

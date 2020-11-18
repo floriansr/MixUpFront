@@ -12,12 +12,9 @@ const rootReducer = combineReducers({
   user: userReducer,
   tracks: tracklistReducer,
   spotify_authentification: spotifyReducer,
-  private_datas_user: userdataReducer,
+  private_datas_user: userdataReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunkMiddleware))
-);
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 export default store;

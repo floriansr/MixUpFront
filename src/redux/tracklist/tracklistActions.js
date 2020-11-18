@@ -5,13 +5,13 @@ export const setTracks = (tracks, name, owner) => {
     type: SET_TRACKS,
     details: tracks,
     name,
-    owner,
+    owner
   };
 };
 
 export const setCurrentTrack = (track) => {
   return {
     type: SET_CURRENT_TRACK,
-    currentTrack: track,
+    currentTrack: track
   };
 };

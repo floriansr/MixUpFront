@@ -11,7 +11,7 @@ dotenv.config();
  */
 
 const API = axios.create({
-  baseURL: 'https://accounts.spotify.com',
+  baseURL: 'https://accounts.spotify.com'
 });
 
 const authKey = Buffer.from(
@@ -24,8 +24,8 @@ API.interceptors.request.use(
     headers: {
       ...headers,
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${authKey}`,
-    },
+      Authorization: `Basic ${authKey}`
+    }
   }),
   (error) => {
     return Promise.reject(error);
@@ -46,7 +46,7 @@ export default class SpotifyACF {
       scope: scopes,
       redirect_uri: process.env.REACT_APP_REDIRECT_URI,
       state,
-      show_dialog: true,
+      show_dialog: true
     });
 
     Cookies.set(stateKey, state);
@@ -61,7 +61,7 @@ export default class SpotifyACF {
         querystring.stringify({
           code,
           redirect_uri: process.env.REACT_APP_REDIRECT_URI,
-          grant_type: 'authorization_code',
+          grant_type: 'authorization_code'
         })
       );
       return res.data;
@@ -71,7 +71,7 @@ export default class SpotifyACF {
         clientID: process.env.REACT_APP_CLIENT_ID,
         clientSecret: process.env.REACT_APP_CLIENT_SECRET_ID,
         redirectUri: process.env.REACT_APP_REDIRECT_URI,
-        authKey,
+        authKey
       });
     }
     return null;
@@ -83,7 +83,7 @@ export default class SpotifyACF {
         '/api/token',
         querystring.stringify({
           grant_type: 'refresh_token',
-          refresh_token: refreshToken,
+          refresh_token: refreshToken
         })
       );
       return res.data;
@@ -93,7 +93,7 @@ export default class SpotifyACF {
         clientID: process.env.REACT_APP_CLIENT_ID,
         clientSecret: process.env.REACT_APP_CLIENT_SECRET_ID,
         redirectUri: process.env.REACT_APP_REDIRECT_URI,
-        authKey,
+        authKey
       });
     }
     return null;
