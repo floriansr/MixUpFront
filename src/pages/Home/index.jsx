@@ -12,8 +12,7 @@ const Home = () => {
           autoPlay="autoplay"
           muted="muted"
           loop="loop"
-          id="homePageVideoBg"
-        >
+          id="homePageVideoBg">
           <source src={bgVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

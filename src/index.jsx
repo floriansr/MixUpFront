@@ -1,6 +1,6 @@
 // CSS & SCSS
 import 'antd/dist/antd.css';
-import './assets/scss/styles.scss';
+import 'assets/scss/styles.scss';
 
 // REACT
 import React from 'react';
@@ -8,12 +8,12 @@ import ReactDOM from 'react-dom';
 
 // REDUX
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import store from 'redux/store';
 
 // APP
-import App from './App';
+import App from 'App';
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from 'serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>

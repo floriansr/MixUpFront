@@ -14,18 +14,18 @@ import { setConnection, setProfile } from '../../redux';
 
 const layout = {
   labelCol: {
-    span: 9,
+    span: 9
   },
   wrapperCol: {
-    span: 6,
-  },
+    span: 6
+  }
 };
 
 const tailLayout = {
   wrapperCol: {
     offset: 9,
-    span: 16,
-  },
+    span: 16
+  }
 };
 
 const LogIn = () => {
@@ -36,13 +36,13 @@ const LogIn = () => {
     const sendConnectionRequest = async () => {
       try {
         const res = await APIManager.connectUser({
-          user: { ...userInput },
+          user: { ...userInput }
         });
         Cookies.set(
           cookieName,
           {
             token: res.headers.authorization,
-            userInfo: res.data,
+            userInfo: res.data
           },
           { expires: 6 }
         );
@@ -52,10 +52,7 @@ const LogIn = () => {
         message.success('Hey there, welcome back!', 3);
       } catch (error) {
         console.error(error);
-        return message.error(
-          'An error occurred, please verify your email/password and retry.',
-          3
-        );
+        return message.error('An error occurred, please verify your email/password and retry.', 3);
       }
     };
     sendConnectionRequest();
@@ -73,20 +70,18 @@ const LogIn = () => {
           {...layout}
           name="basic"
           initialValues={{
-            remember: true,
+            remember: true
           }}
-          onFinish={onFinish}
-        >
+          onFinish={onFinish}>
           <Form.Item
             label="Email"
             name="email"
             rules={[
               {
                 required: true,
-                message: 'Please provide an email.',
-              },
-            ]}
-          >
+                message: 'Please provide an email.'
+              }
+            ]}>
             <Input />
           </Form.Item>
 
@@ -96,10 +91,9 @@ const LogIn = () => {
             rules={[
               {
                 required: true,
-                message: 'Please provide a password!',
-              },
-            ]}
-          >
+                message: 'Please provide a password!'
+              }
+            ]}>
             <Input.Password />
           </Form.Item>
 

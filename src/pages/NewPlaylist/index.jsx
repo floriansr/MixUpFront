@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '50ch',
-      borderColor: 'white',
-    },
-  },
+      borderColor: 'white'
+    }
+  }
 }));
 
 const NewPlaylist = () => {
@@ -42,20 +42,14 @@ const NewPlaylist = () => {
         className={classes.root}
         noValidate
         autoComplete="off"
-        onSubmit={(e) => handleSubmit(e)}
-      >
+        onSubmit={(e) => handleSubmit(e)}>
         <TextField
           id="outlined-basic"
           label="Choose a name"
           variant="outlined"
           onChange={(e) => setInput(e.target.value)}
         />
-        <Button
-          type="submit"
-          variant="contained"
-          color="secondary"
-          id="new-playlist-button"
-        >
+        <Button type="submit" variant="contained" color="secondary" id="new-playlist-button">
           Create playlist
         </Button>
       </form>

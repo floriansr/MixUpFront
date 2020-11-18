@@ -13,18 +13,18 @@ import { setProfile, setConnection } from '../../redux';
 
 const layout = {
   labelCol: {
-    span: 9,
+    span: 9
   },
   wrapperCol: {
-    span: 6,
-  },
+    span: 6
+  }
 };
 
 const tailLayout = {
   wrapperCol: {
     offset: 9,
-    span: 16,
-  },
+    span: 16
+  }
 };
 
 const Register = () => {
@@ -35,13 +35,13 @@ const Register = () => {
     const sendRegistrationRequest = async () => {
       try {
         const res = await APIManager.registerUser({
-          user: { ...userInput },
+          user: { ...userInput }
         });
         Cookies.set(
           cookieName,
           {
             token: res.headers.authorization,
-            userInfo: res.data,
+            userInfo: res.data
           },
           { expires: 6 }
         );
@@ -52,10 +52,7 @@ const Register = () => {
         message.success('Hey there, welcome to MixUp!', 3);
       } catch (error) {
         console.error(error);
-        return message.error(
-          'An error occurred. The email might already has a MixUp account.',
-          3
-        );
+        return message.error('An error occurred. The email might already has a MixUp account.', 3);
       }
     };
     sendRegistrationRequest();
@@ -74,20 +71,18 @@ const Register = () => {
             {...layout}
             name="basic"
             initialValues={{
-              remember: true,
+              remember: true
             }}
-            onFinish={onFinish}
-          >
+            onFinish={onFinish}>
             <Form.Item
               label="Email"
               name="email"
               rules={[
                 {
                   required: true,
-                  message: 'Please provide an email!',
-                },
-              ]}
-            >
+                  message: 'Please provide an email!'
+                }
+              ]}>
               <Input />
             </Form.Item>
 
@@ -97,10 +92,9 @@ const Register = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please choose a password!',
-                },
-              ]}
-            >
+                  message: 'Please choose a password!'
+                }
+              ]}>
               <Input.Password />
             </Form.Item>
 

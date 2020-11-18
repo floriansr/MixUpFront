@@ -12,25 +12,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUserData, removeUserData } from './redux';
 
 // Component
-import Navbar from './components/Navbar';
-import Callback from './components/Callback';
+import Navbar from 'components/Navbar';
+import Callback from 'components/Callback';
 
 // Tool
-import Authroute from './tools/Authroute';
+import Authroute from 'tools/Authroute';
 
 // Class Managers
-import TokenManager from './services/TokenManager';
-import SpotifyManager from './services/SpotifyAPIManager';
+import TokenManager from 'services/TokenManager';
+import SpotifyManager from 'services/SpotifyAPIManager';
 
 // Page components
-import Register from './pages/Register';
-import LogIn from './pages/Login';
-import Home from './pages/Home';
-import About from './pages/About';
-import Profile from './pages/Profile';
-import NotFound from './pages/NotFound';
-import Playlist from './pages/Playlist';
-import NewPlaylist from './pages/NewPlaylist';
+import Register from 'pages/Register';
+import LogIn from 'pages/Login';
+import Home from 'pages/Home';
+import About from 'pages/About';
+import Profile from 'pages/Profile';
+import NotFound from 'pages/NotFound';
+import Playlist from 'pages/Playlist';
+import NewPlaylist from 'pages/NewPlaylist';
 
 /*
   The 'heart' of the program with the following features:
@@ -40,9 +40,7 @@ import NewPlaylist from './pages/NewPlaylist';
 */
 
 const App = () => {
-  const { login, accessToken } = useSelector(
-    (state) => state.spotify_authentification
-  );
+  const { login, accessToken } = useSelector((state) => state.spotify_authentification);
   // , loginTime
   const dispatch = useDispatch();
 
@@ -58,16 +56,13 @@ const App = () => {
   const retrieveOtherData = async () => {
     try {
       const res = await SpotifyManager.me(accessToken);
-      dispatch(
-        setUserData({ displayName: res.display_name, email: res.email })
-      );
+      dispatch(setUserData({ displayName: res.display_name, email: res.email }));
     } catch (error) {
       console.log(error);
       dispatch(
         removeUserData({
           showError: true,
-          errors:
-            'Problem with authentication or login session has expired. Please try again.',
+          errors: 'Problem with authentication or login session has expired. Please try again.'
         })
       );
     }

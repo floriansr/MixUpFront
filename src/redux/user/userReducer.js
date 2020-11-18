@@ -3,9 +3,7 @@ import { PROFILE, REMOVE_PROFILE } from './userType';
 import cookieName from '../../constants';
 
 const initialState = {
-  data: Cookies.get(cookieName)
-    ? JSON.parse(Cookies.get(cookieName)).userInfo
-    : {},
+  data: Cookies.get(cookieName) ? JSON.parse(Cookies.get(cookieName)).userInfo : {}
 };
 
 const userReducer = (state = initialState, action) => {
@@ -13,12 +11,12 @@ const userReducer = (state = initialState, action) => {
     case PROFILE:
       return {
         ...state,
-        data: action.details,
+        data: action.details
       };
     case REMOVE_PROFILE:
       return {
         ...state,
-        data: {},
+        data: {}
       };
     default:
       return state;

@@ -5,12 +5,12 @@ export const setTokens = (aToken, rToken, scopes) => {
     accessToken: aToken,
     refreshToken: rToken,
     scopes,
-    type: SET_TOKENS,
+    type: SET_TOKENS
   };
 };
 
 export const removeTokens = () => {
   return {
-    type: REMOVE_TOKENS,
+    type: REMOVE_TOKENS
   };
 };

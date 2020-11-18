@@ -1,16 +1,14 @@
 @import '../../assets/scss/variables';
 
-.frame{
+.frame {
   height: calc(100vh - 55px);
   display: flex;
-  
 
-  .forms{
-
+  .forms {
     width: 100%;
     margin: auto 0;
 
-    label{
+    label {
       color: rgb(247, 249, 249) !important;
       @media (max-width: $xs-max) {
         font-size: 1.2rem;
@@ -25,13 +23,13 @@
       margin: 0;
       font-size: 5rem;
       padding-top: 0;
-      
+
       @media (max-width: $xs-max) {
         font-size: 3rem;
       }
     }
 
-    p.authDirection{
+    p.authDirection {
       text-align: center;
       color: rgb(247, 249, 249) !important;
       @media (max-width: $xs-max) {

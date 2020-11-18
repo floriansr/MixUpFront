@@ -9,7 +9,7 @@ const initialState = Cookies.get('spotifyTokens')
       expires_in: 0,
       scopes: '',
       login: false,
-      loginTime: '',
+      loginTime: ''
     };
 
 const authReducer = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const authReducer = (state = initialState, action) => {
         scopes: action.scopes,
         expires_in: 3600,
         login: true,
-        loginTime: new Date().getTime(),
+        loginTime: new Date().getTime()
       };
 
     case REMOVE_TOKENS:
@@ -33,7 +33,7 @@ const authReducer = (state = initialState, action) => {
         scopes: '',
         expires_in: 0,
         login: false,
-        loginTime: '',
+        loginTime: ''
       };
     default:
       return state;

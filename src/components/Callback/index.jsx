@@ -16,23 +16,18 @@ const Callback = () => {
     const fetch = async (code) => {
       try {
         const result = await SpotifyACF.getSpotifyAccessToken(code);
-        dispatch(
-          setTokens(result.access_token, result.refresh_token, result.scope)
-        );
+        dispatch(setTokens(result.access_token, result.refresh_token, result.scope));
         Cookies.set('spotifyTokens', {
           accessToken: result.access_token,
           refreshToken: result.refresh_token,
           scopes: result.scope,
-          login: true,
+          login: true
         });
         history.push('/');
         message.success('Thanks for authentification !', 3);
       } catch (error) {
         console.error(error);
-        message.error(
-          "There's something wrong with Spotify authentication.",
-          3
-        );
+        message.error("There's something wrong with Spotify authentication.", 3);
       }
     };
 

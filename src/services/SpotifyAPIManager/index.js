@@ -2,7 +2,7 @@ import axios from 'axios';
 import SpotifyCCF from '../Spotify_Client_Credentials_Flows';
 
 const API = axios.create({
-  baseURL: 'https://api.spotify.com/v1/',
+  baseURL: 'https://api.spotify.com/v1/'
 });
 
 API.interceptors.request.use(
@@ -11,8 +11,8 @@ API.interceptors.request.use(
     headers: {
       ...headers,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${await SpotifyCCF.authorize()}`,
-    },
+      Authorization: `Bearer ${await SpotifyCCF.authorize()}`
+    }
   }),
   (error) => {
     return Promise.reject(error);
@@ -22,7 +22,7 @@ API.interceptors.request.use(
 export default class SpotifyAPIManager {
   static async me(aToken) {
     const headers = {
-      headers: { Authorization: `Bearer ${aToken}` },
+      headers: { Authorization: `Bearer ${aToken}` }
     };
     const res = await axios.get('https://api.spotify.com/v1/me', headers);
     return res.data;

@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
       width: '50ch',
       borderColor: 'white',
       display: 'inline-block',
-      paddingRight: '2%',
-    },
-  },
+      paddingRight: '2%'
+    }
+  }
 }));
 
 const Playlist = () => {
@@ -55,17 +55,9 @@ const Playlist = () => {
 
       if (res.status === 'success') {
         if (res.entries[0]) {
-          setTrackPlaylist(
-            res.entries,
-            res.name,
-            res.owner.id,
-            res.current_track
-          );
+          setTrackPlaylist(res.entries, res.name, res.owner.id, res.current_track);
         } else {
-          return message.success(
-            'This is a fresh playlist, add some sounds!',
-            3
-          );
+          return message.success('This is a fresh playlist, add some sounds!', 3);
         }
       } else {
         return message.error(res.messages[0], 3);
@@ -88,11 +80,7 @@ const Playlist = () => {
   const searchBarOnSubmit = async (e) => {
     e.preventDefault();
     if (!userTrackChoice) return message.error('Please choose a track');
-    const res = await APIManager.addTrackToPlaylist(
-      userId,
-      userTrackChoice.id,
-      playlistId
-    );
+    const res = await APIManager.addTrackToPlaylist(userId, userTrackChoice.id, playlistId);
     if (res.status === 'success') {
       setSpotifyDetails([...spotifyDetails, userTrackChoice]);
 
@@ -127,10 +115,7 @@ const Playlist = () => {
         return setSuggestions(res.data.tracks.items);
       } catch (error) {
         console.log(error.response);
-        return message.error(
-          'An error occurred, please contact the service provider.',
-          3
-        );
+        return message.error('An error occurred, please contact the service provider.', 3);
       }
     } else setSuggestions([]);
   };
@@ -144,14 +129,11 @@ const Playlist = () => {
             noValidate
             autoComplete="off"
             onSubmit={(e) => searchBarOnSubmit(e)}
-            id="addTrackForm"
-          >
+            id="addTrackForm">
             <Autocomplete
               id="suggestion-list"
               options={suggestions}
-              getOptionLabel={(option) =>
-                `${option.name} - ${option.artists[0].name}`
-              }
+              getOptionLabel={(option) => `${option.name} - ${option.artists[0].name}`}
               onChange={inputOnChange}
               renderInput={(params) => (
                 <TextField
@@ -163,12 +145,7 @@ const Playlist = () => {
                 />
               )}
             />
-            <Button
-              type="submit"
-              variant="contained"
-              color="secondary"
-              id="newPlaylistButton"
-            >
+            <Button type="submit" variant="contained" color="secondary" id="newPlaylistButton">
               Add this track
             </Button>
           </form>
@@ -183,9 +160,7 @@ const Playlist = () => {
             </p>
 
             <Player
-              spotifyTrack={spotifyDetails.find(
-                (el) => el.id === currentTrack.track_spotify_id
-              )}
+              spotifyTrack={spotifyDetails.find((el) => el.id === currentTrack.track_spotify_id)}
               trackPlaylistId={currentTrack.id}
             />
 

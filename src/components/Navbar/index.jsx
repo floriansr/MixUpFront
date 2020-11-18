@@ -12,7 +12,7 @@ import {
   LogoutOutlined,
   HomeOutlined,
   SettingOutlined,
-  CustomerServiceOutlined,
+  CustomerServiceOutlined
 } from '@ant-design/icons';
 import APIManager from '../../services/APIManager';
 import cookieName from '../../constants';
@@ -48,11 +48,7 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <Menu
-          mode="horizontal"
-          theme="dark"
-          className={location.pathname === '/' && 'homeNavbar'}
-        >
+        <Menu mode="horizontal" theme="dark" className={location.pathname === '/' && 'homeNavbar'}>
           <Menu.Item icon={<HomeOutlined />}>
             <NavLink exact to="/" activeClassName="active">
               Home
@@ -66,15 +62,8 @@ const Navbar = () => {
           )}
 
           {logStatus && (
-            <Menu.Item
-              className="newPlaylistNavlink"
-              icon={<CustomerServiceOutlined />}
-            >
-              <NavLink
-                className="importantLinkText"
-                to="/new-playlist"
-                activeClassName="active"
-              >
+            <Menu.Item className="newPlaylistNavlink" icon={<CustomerServiceOutlined />}>
+              <NavLink className="importantLinkText" to="/new-playlist" activeClassName="active">
                 CREATE A PLAYLIST
               </NavLink>
             </Menu.Item>

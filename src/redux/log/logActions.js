@@ -2,12 +2,12 @@ import { CONNECTION, DISCONNECTION } from './logType';
 
 export const setConnection = () => {
   return {
-    type: CONNECTION,
+    type: CONNECTION
   };
 };
 
 export const removeConnection = () => {
   return {
-    type: DISCONNECTION,
+    type: DISCONNECTION
   };
 };

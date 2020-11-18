@@ -4,7 +4,7 @@ const initialState = {
   tracks: [],
   name: null,
   owner: null,
-  currentTrack: null,
+  currentTrack: null
 };
 
 const tracklistReducer = (state = initialState, action) => {
@@ -14,13 +14,13 @@ const tracklistReducer = (state = initialState, action) => {
         ...state,
         tracks: action.details,
         name: action.name,
-        owner: action.owner,
+        owner: action.owner
       };
 
     case SET_CURRENT_TRACK:
       return {
         ...state,
-        currentTrack: action.currentTrack,
+        currentTrack: action.currentTrack
       };
     default:
       return state;

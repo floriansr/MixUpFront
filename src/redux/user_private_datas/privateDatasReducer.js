@@ -5,8 +5,8 @@ const initialState = {
     displayName: '',
     email: '',
     showError: false,
-    errors: [],
-  },
+    errors: []
+  }
 };
 
 const userdataReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const userdataReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        private_datas_user: action.details,
+        private_datas_user: action.details
       };
     case REMOVE_USER_DATA:
       return {
@@ -23,8 +23,8 @@ const userdataReducer = (state = initialState, action) => {
           displayName: '',
           email: '',
           showError: false,
-          errors: [],
-        },
+          errors: []
+        }
       };
     default:
       return state;
