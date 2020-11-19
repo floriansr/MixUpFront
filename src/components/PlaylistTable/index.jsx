@@ -11,11 +11,7 @@ import {
   Tooltip
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  MusicNoteOutlined,
-  MusicOffOutlined,
-  NavigateNext
-} from '@material-ui/icons/MusicNoteOutlined';
+import { MusicNoteOutlined, MusicOffOutlined, NavigateNext } from '@material-ui/icons';
 import { message } from 'antd';
 import shortID from 'shortid';
 
