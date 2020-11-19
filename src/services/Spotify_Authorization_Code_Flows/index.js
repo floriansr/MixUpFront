@@ -1,8 +1,9 @@
 import axios from 'axios';
-import querystring from 'querystring';
 import dotenv from 'dotenv';
 import Cookies from 'js-cookie';
-import generateRandomString from '../../tools/generateRandomString';
+import querystring from 'querystring';
+
+import { generateRandomString } from 'tools';
 
 dotenv.config();
 

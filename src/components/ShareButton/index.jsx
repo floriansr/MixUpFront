@@ -1,12 +1,11 @@
-import React from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import ShareIcon from '@material-ui/icons/Share';
+import { Fab, Tooltip, Zoom } from '@material-ui/core';
+import { Share } from '@material-ui/icons';
 import { message } from 'antd';
-import Fab from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import Zoom from '@material-ui/core/Zoom';
 
 import './style.scss';
+
+import * as React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const ShareButton = () => {
   const handleClick = () => {
@@ -23,7 +22,7 @@ const ShareButton = () => {
           enterDelay={200}
           leaveDelay={200}>
           <Fab color="primary">
-            <ShareIcon onClick={handleClick} style={{ cursor: 'pointer' }} />
+            <Share onClick={handleClick} style={{ cursor: 'pointer' }} />
           </Fab>
         </Tooltip>
       </CopyToClipboard>

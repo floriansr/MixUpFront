@@ -1,15 +1,17 @@
-import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import '../../assets/scss/forms.scss';
-
-import { Form, Input, Button, message } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import Cookies from 'js-cookie';
 
-import APIManager from '../../services/APIManager';
-import cookieName from '../../constants';
-import { setProfile, setConnection } from '../../redux';
+import 'assets/scss/forms.scss';
+
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+
+import cookieName from 'constants';
+
+import { APIManager } from 'services';
+
+import { setConnection, setProfile } from '../../redux';
 
 const layout = {
   labelCol: {

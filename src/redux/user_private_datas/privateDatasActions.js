@@ -1,4 +1,4 @@
-import { SET_USER_DATA, REMOVE_USER_DATA } from './privateDatasTypes';
+import { REMOVE_USER_DATA, SET_USER_DATA } from './privateDatasTypes';
 
 export const setUserData = (data) => {
   return {

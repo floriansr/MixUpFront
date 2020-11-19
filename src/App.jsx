@@ -1,36 +1,19 @@
-import * as React from 'react';
 import Cookies from 'js-cookie';
 
-// React-router-dom library to handle navigation
+import * as React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// Hooks
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { SpotifyAPIManager, TokenManager } from 'services';
 
-// Redux action
-import { setUserData, removeUserData } from './redux';
+import { Authroute } from 'tools';
 
-// Component
-import Navbar from 'components/Navbar';
-import Callback from 'components/Callback';
+import { Callback, Navbar } from 'components';
 
-// Tool
-import Authroute from 'tools/Authroute';
+import { About, Home, LogIn, NewPlaylist, NotFound, Playlist, Profile, Register } from 'pages';
 
-// Class Managers
-import TokenManager from 'services/TokenManager';
-import SpotifyManager from 'services/SpotifyAPIManager';
-
-// Page components
-import Register from 'pages/Register';
-import LogIn from 'pages/Login';
-import Home from 'pages/Home';
-import About from 'pages/About';
-import Profile from 'pages/Profile';
-import NotFound from 'pages/NotFound';
-import Playlist from 'pages/Playlist';
-import NewPlaylist from 'pages/NewPlaylist';
+import { removeUserData, setUserData } from './redux';
 
 /*
   The 'heart' of the program with the following features:
@@ -55,7 +38,7 @@ const App = () => {
 
   const retrieveOtherData = async () => {
     try {
-      const res = await SpotifyManager.me(accessToken);
+      const res = await SpotifyAPIManager.me(accessToken);
       dispatch(setUserData({ displayName: res.display_name, email: res.email }));
     } catch (error) {
       console.log(error);

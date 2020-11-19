@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import Button from '@material-ui/core/Button';
+import { Autocomplete } from '@material-ui/lab';
 import { message } from 'antd';
-import APIManager from '../../services/APIManager';
-import SpotifyAPIManager from '../../services/SpotifyAPIManager';
+
 import './styles.scss';
 
-import PlaylistTable from '../../components/PlaylistTable';
-import ShareButton from '../../components/ShareButton';
-import Player from '../../components/Player';
-import NewPlaylistButton from '../../components/NewPlaylistButton';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-import { setTracks, setCurrentTrack } from '../../redux';
+import { APIManager, SpotifyAPIManager } from 'services';
 
-const useStyles = makeStyles((theme) => ({
+import { NewPlaylistButton, Player, PlaylistTable, ShareButton } from 'components';
+
+import { setCurrentTrack, setTracks } from '../../redux';
+
+const useStyles = makeStyles(() => ({
   root: {
     '& > *': {
       width: '50ch',
