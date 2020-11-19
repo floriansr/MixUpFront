@@ -1,6 +1,6 @@
 module.exports = {
   root: true, // Make sure eslint picks up the config at the root of the directory
-  plugins: ['simple-import-sort'],
+  plugins: ['simple-import-sort', 'react-hooks'],
   parserOptions: {
     ecmaVersion: 2020, // Use the latest ecmascript standard
     sourceType: 'module', // Allows using import/export statements
@@ -35,6 +35,8 @@ module.exports = {
     'plugin:prettier/recommended' // Make this the last element so prettier config overrides other formatting rules
   ],
   rules: {
+    'react-hooks/rules-of-hooks': 'warn', // Vérifie les règles des Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Vérifie les tableaux de dépendances
     'react/prop-types': ['off'],
     'react/jsx-props-no-spreading': ['off'],
     'no-console': ['off'],
