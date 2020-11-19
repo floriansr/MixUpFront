@@ -40,7 +40,7 @@ module.exports = {
     'no-console': ['off'],
     'no-underscore-dangle': ['off'],
     'jsx-a11y/media-has-caption': ['off'],
-    'no-unused-vars': ['off'],
+    'no-unused-vars': ['warn'],
     'simple-import-sort/imports': [
       'error',
       {
