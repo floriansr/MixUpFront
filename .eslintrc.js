@@ -1,5 +1,6 @@
 module.exports = {
   root: true, // Make sure eslint picks up the config at the root of the directory
+  plugins: ['simple-import-sort'],
   parserOptions: {
     ecmaVersion: 2020, // Use the latest ecmascript standard
     sourceType: 'module', // Allows using import/export statements
@@ -29,15 +30,35 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended', // Make this the last element so prettier config overrides other formatting rules
     'plugin:import/errors',
-    'plugin:import/warnings'
+    'plugin:import/warnings',
+    'plugin:prettier/recommended' // Make this the last element so prettier config overrides other formatting rules
   ],
   rules: {
     'react/prop-types': ['off'],
     'react/jsx-props-no-spreading': ['off'],
     'no-console': ['off'],
     'no-underscore-dangle': ['off'],
+    'jsx-a11y/media-has-caption': ['off'],
+    'no-unused-vars': ['off'],
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          ['^@?\\w'],
+          ['^\\u0000'],
+          ['^assets(/.*|$)'],
+          ['^react'],
+          ['^redux(/.*|$)'],
+          ['^constants(/.*|$)'],
+          ['^services(/.*|$)'],
+          ['^tools(/.*|$)'],
+          ['^components(/.*|$)'],
+          ['^pages(/.*|$)'],
+          ['^\\.']
+        ]
+      }
+    ],
     quotes: [2, 'single', { avoidEscape: true }],
     'jsx-a11y/label-has-associated-control': [
       'warn',
