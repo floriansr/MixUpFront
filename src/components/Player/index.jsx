@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import SpotifyPlayer from 'react-spotify-web-playback';
-import { useDispatch, useSelector } from 'react-redux';
-import APIManager from '../../services/APIManager';
-
-import { setTracks, setCurrentTrack } from '../../redux';
-
 import './styles.scss';
+
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import SpotifyPlayer from 'react-spotify-web-playback';
+
+import { setCurrentTrack, setTracks } from '../../redux';
+import APIManager from '../../services/APIManager';
 
 const Player = ({ spotifyTrack, trackPlaylistId }) => {
   const { accessToken } = useSelector((state) => state.spotify_authentification);

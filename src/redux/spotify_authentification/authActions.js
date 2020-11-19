@@ -1,4 +1,4 @@
-import { SET_TOKENS, REMOVE_TOKENS } from './authTypes';
+import { REMOVE_TOKENS, SET_TOKENS } from './authTypes';
 
 export const setTokens = (aToken, rToken, scopes) => {
   return {

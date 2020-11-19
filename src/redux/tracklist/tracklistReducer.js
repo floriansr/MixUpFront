@@ -1,4 +1,4 @@
-import { SET_TRACKS, SET_CURRENT_TRACK } from './tracklistType';
+import { SET_CURRENT_TRACK, SET_TRACKS } from './tracklistType';
 
 const initialState = {
   tracks: [],

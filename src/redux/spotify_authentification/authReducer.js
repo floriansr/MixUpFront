@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
-import { SET_TOKENS, REMOVE_TOKENS } from './authTypes';
+
+import { REMOVE_TOKENS, SET_TOKENS } from './authTypes';
 
 const initialState = Cookies.get('spotifyTokens')
   ? JSON.parse(Cookies.get('spotifyTokens'))

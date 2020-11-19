@@ -1,8 +1,8 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
 import { message } from 'antd';
 
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { Redirect, Route } from 'react-router-dom';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const logStatus = useSelector((state) => state.log.user_connected);

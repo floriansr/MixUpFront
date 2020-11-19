@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import './styles.scss';
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { message } from 'antd';
+
+import './styles.scss';
+
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import APIManager from '../../services/APIManager';
 
 const useStyles = makeStyles((theme) => ({

@@ -1,25 +1,24 @@
-import React from 'react';
-import { useLocation, NavLink, useHistory } from 'react-router-dom';
-
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  AppstoreOutlined,
+  CustomerServiceOutlined,
+  HomeOutlined,
+  LogoutOutlined,
+  MailOutlined,
+  SettingOutlined,
+  UserOutlined
+} from '@ant-design/icons';
+import { Menu, message } from 'antd';
 import Cookies from 'js-cookie';
 
-import { Menu, message } from 'antd';
-import {
-  UserOutlined,
-  MailOutlined,
-  AppstoreOutlined,
-  LogoutOutlined,
-  HomeOutlined,
-  SettingOutlined,
-  CustomerServiceOutlined
-} from '@ant-design/icons';
-import APIManager from '../../services/APIManager';
-import cookieName from '../../constants';
-
-import { removeConnection, removeProfile } from '../../redux';
-
 import './styles.scss';
+
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+
+import cookieName from '../../constants';
+import { removeConnection, removeProfile } from '../../redux';
+import APIManager from '../../services/APIManager';
 
 const Navbar = () => {
   const dispatch = useDispatch();

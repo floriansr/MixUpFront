@@ -1,5 +1,7 @@
-import React from 'react';
 import './styles.scss';
+
+import React from 'react';
+
 import bgVideo from '../../assets/videos/home-bg.mp4';
 import NewPlaylistButton from '../../components/NewPlaylistButton';
 

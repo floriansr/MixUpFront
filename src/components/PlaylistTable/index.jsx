@@ -1,26 +1,27 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import shortID from 'shortid';
-import { makeStyles } from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
+import Fab from '@material-ui/core/Fab';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Tooltip from '@material-ui/core/Tooltip';
 import MusicNoteOutlinedIcon from '@material-ui/icons/MusicNoteOutlined';
 import MusicOffOutlinedIcon from '@material-ui/icons/MusicOffOutlined';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
-import Chip from '@material-ui/core/Chip';
+import { message } from 'antd';
+import shortID from 'shortid';
 
 import './styles.scss';
 
-import { message } from 'antd';
-import APIManager from '../../services/APIManager';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { setTracks } from '../../redux';
+import APIManager from '../../services/APIManager';
 
 const PlaylistTable = ({ spotifyDetails }) => {
   const dispatch = useDispatch();

@@ -1,12 +1,13 @@
-import React from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import ShareIcon from '@material-ui/icons/Share';
-import { message } from 'antd';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
+import ShareIcon from '@material-ui/icons/Share';
+import { message } from 'antd';
 
 import './style.scss';
+
+import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const ShareButton = () => {
   const handleClick = () => {

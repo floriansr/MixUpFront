@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Button from '@material-ui/core/Button';
 import { message } from 'antd';
-import APIManager from '../../services/APIManager';
-import SpotifyAPIManager from '../../services/SpotifyAPIManager';
+
 import './styles.scss';
 
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import NewPlaylistButton from '../../components/NewPlaylistButton';
+import Player from '../../components/Player';
 import PlaylistTable from '../../components/PlaylistTable';
 import ShareButton from '../../components/ShareButton';
-import Player from '../../components/Player';
-import NewPlaylistButton from '../../components/NewPlaylistButton';
-
-import { setTracks, setCurrentTrack } from '../../redux';
+import { setCurrentTrack, setTracks } from '../../redux';
+import APIManager from '../../services/APIManager';
+import SpotifyAPIManager from '../../services/SpotifyAPIManager';
 
 const useStyles = makeStyles((theme) => ({
   root: {

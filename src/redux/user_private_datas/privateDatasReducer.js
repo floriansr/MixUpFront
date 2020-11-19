@@ -1,4 +1,4 @@
-import { SET_USER_DATA, REMOVE_USER_DATA } from './privateDatasTypes';
+import { REMOVE_USER_DATA, SET_USER_DATA } from './privateDatasTypes';
 
 const initialState = {
   private_datas_user: {

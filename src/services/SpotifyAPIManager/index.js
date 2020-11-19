@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import SpotifyCCF from '../Spotify_Client_Credentials_Flows';
 
 const API = axios.create({

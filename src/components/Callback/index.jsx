@@ -1,11 +1,13 @@
-import * as React from 'react';
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { message } from 'antd';
 import Cookies from 'js-cookie';
-import SpotifyACF from '../../services/Spotify_Authorization_Code_Flows';
+
+import * as React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import { setTokens } from '../../redux';
+import SpotifyACF from '../../services/Spotify_Authorization_Code_Flows';
 
 const Callback = () => {
   const history = useHistory();

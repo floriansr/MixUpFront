@@ -1,6 +1,6 @@
 import axios from 'axios';
-import querystring from 'querystring';
 import dotenv from 'dotenv';
+import querystring from 'querystring';
 
 /**
  * Authorize and get spotify access token

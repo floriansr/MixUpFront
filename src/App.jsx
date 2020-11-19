@@ -1,36 +1,28 @@
-import * as React from 'react';
 import Cookies from 'js-cookie';
 
-// React-router-dom library to handle navigation
+import * as React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// Hooks
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import SpotifyManager from 'services/SpotifyAPIManager';
+import TokenManager from 'services/TokenManager';
 
-// Redux action
-import { setUserData, removeUserData } from './redux';
-
-// Component
-import Navbar from 'components/Navbar';
-import Callback from 'components/Callback';
-
-// Tool
 import Authroute from 'tools/Authroute';
 
-// Class Managers
-import TokenManager from 'services/TokenManager';
-import SpotifyManager from 'services/SpotifyAPIManager';
+import Callback from 'components/Callback';
+import Navbar from 'components/Navbar';
 
-// Page components
-import Register from 'pages/Register';
-import LogIn from 'pages/Login';
-import Home from 'pages/Home';
 import About from 'pages/About';
-import Profile from 'pages/Profile';
+import Home from 'pages/Home';
+import LogIn from 'pages/Login';
+import NewPlaylist from 'pages/NewPlaylist';
 import NotFound from 'pages/NotFound';
 import Playlist from 'pages/Playlist';
-import NewPlaylist from 'pages/NewPlaylist';
+import Profile from 'pages/Profile';
+import Register from 'pages/Register';
+
+import { removeUserData, setUserData } from './redux';
 
 /*
   The 'heart' of the program with the following features:
