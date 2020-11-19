@@ -1,27 +1,32 @@
-import Chip from '@material-ui/core/Chip';
-import Fab from '@material-ui/core/Fab';
-import Paper from '@material-ui/core/Paper';
+import {
+  Chip,
+  Fab,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Tooltip
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Tooltip from '@material-ui/core/Tooltip';
-import MusicNoteOutlinedIcon from '@material-ui/icons/MusicNoteOutlined';
-import MusicOffOutlinedIcon from '@material-ui/icons/MusicOffOutlined';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import {
+  MusicNoteOutlined,
+  MusicOffOutlined,
+  NavigateNext
+} from '@material-ui/icons/MusicNoteOutlined';
 import { message } from 'antd';
 import shortID from 'shortid';
 
 import './styles.scss';
 
-import React from 'react';
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { APIManager } from 'services';
+
 import { setTracks } from '../../redux';
-import APIManager from '../../services/APIManager';
 
 const PlaylistTable = ({ spotifyDetails }) => {
   const dispatch = useDispatch();
@@ -127,7 +132,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
               rows.map((row, index) => {
                 return (
                   <TableRow role="checkbox" tabIndex={-1} key={shortID.generate()}>
-                    <TableCell>{index === 0 && <NavigateNextIcon />}</TableCell>
+                    <TableCell>{index === 0 && <NavigateNext />}</TableCell>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
@@ -160,7 +165,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
                               }}
                               className={classes.fab}
                               onClick={() => Likes(row)}>
-                              <MusicNoteOutlinedIcon />
+                              <MusicNoteOutlined />
                             </Fab>
                           </Tooltip>
                         </TableCell>
@@ -171,7 +176,7 @@ const PlaylistTable = ({ spotifyDetails }) => {
                               color="secondary"
                               className={classes.fab}
                               onClick={() => Dislikes(row)}>
-                              <MusicOffOutlinedIcon />
+                              <MusicOffOutlined />
                             </Fab>
                           </Tooltip>
                         </TableCell>

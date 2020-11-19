@@ -12,13 +12,15 @@ import Cookies from 'js-cookie';
 
 import './styles.scss';
 
-import React from 'react';
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 
-import cookieName from '../../constants';
+import cookieName from 'constants';
+
+import { APIManager } from 'services';
+
 import { removeConnection, removeProfile } from '../../redux';
-import APIManager from '../../services/APIManager';
 
 const Navbar = () => {
   const dispatch = useDispatch();

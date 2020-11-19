@@ -1,15 +1,15 @@
-import Button from '@material-ui/core/Button';
+import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import { message } from 'antd';
 
 import './styles.scss';
 
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import APIManager from '../../services/APIManager';
+import { APIManager } from 'services';
 
 const useStyles = makeStyles((theme) => ({
   root: {

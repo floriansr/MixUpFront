@@ -6,8 +6,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import { SpotifyACF } from 'services';
+
 import { setTokens } from '../../redux';
-import SpotifyACF from '../../services/Spotify_Authorization_Code_Flows';
 
 const Callback = () => {
   const history = useHistory();

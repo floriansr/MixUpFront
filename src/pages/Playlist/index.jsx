@@ -1,24 +1,22 @@
-import Button from '@material-ui/core/Button';
+import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Autocomplete } from '@material-ui/lab';
 import { message } from 'antd';
 
 import './styles.scss';
 
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import NewPlaylistButton from '../../components/NewPlaylistButton';
-import Player from '../../components/Player';
-import PlaylistTable from '../../components/PlaylistTable';
-import ShareButton from '../../components/ShareButton';
-import { setCurrentTrack, setTracks } from '../../redux';
-import APIManager from '../../services/APIManager';
-import SpotifyAPIManager from '../../services/SpotifyAPIManager';
+import { APIManager, SpotifyAPIManager } from 'services';
 
-const useStyles = makeStyles((theme) => ({
+import { NewPlaylistButton, Player, PlaylistTable, ShareButton } from 'components';
+
+import { setCurrentTrack, setTracks } from '../../redux';
+
+const useStyles = makeStyles(() => ({
   root: {
     '& > *': {
       width: '50ch',

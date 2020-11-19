@@ -1,4 +1,4 @@
-import SpotifyACF from '../Spotify_Authorization_Code_Flows';
+import { SpotifyACF } from 'services';
 
 export default class TokenManager {
   static async getToken() {

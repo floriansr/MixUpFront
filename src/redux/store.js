@@ -1,19 +1,20 @@
 import thunkMiddleware from 'redux-thunk';
 
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-
-import logReducer from './log/logReducer';
-import spotifyReducer from './spotify_authentification/authReducer';
-import tracklistReducer from './tracklist/tracklistReducer';
-import userReducer from './user/userReducer';
-import userdataReducer from './user_private_datas/privateDatasReducer';
+import {
+  authReducer,
+  logReducer,
+  privateDatasReducer,
+  tracklistReducer,
+  userReducer
+} from 'redux/reducers';
 
 const rootReducer = combineReducers({
   log: logReducer,
   user: userReducer,
   tracks: tracklistReducer,
-  spotify_authentification: spotifyReducer,
-  private_datas_user: userdataReducer
+  spotify_authentification: authReducer,
+  private_datas_user: privateDatasReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

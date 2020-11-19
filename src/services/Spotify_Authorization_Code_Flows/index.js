@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import Cookies from 'js-cookie';
 import querystring from 'querystring';
 
-import generateRandomString from '../../tools/generateRandomString';
+import { generateRandomString } from 'tools';
 
 dotenv.config();
 

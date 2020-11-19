@@ -1,9 +1,10 @@
 import './styles.scss';
 
-import React from 'react';
+import bgVideo from 'assets/videos/home-bg.mp4';
 
-import bgVideo from '../../assets/videos/home-bg.mp4';
-import NewPlaylistButton from '../../components/NewPlaylistButton';
+import * as React from 'react';
+
+import { NewPlaylistButton } from 'components';
 
 const Home = () => {
   return (

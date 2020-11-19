@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import SpotifyCCF from '../Spotify_Client_Credentials_Flows';
+import { SpotifyCCF } from 'services';
 
 const API = axios.create({
   baseURL: 'https://api.spotify.com/v1/'
